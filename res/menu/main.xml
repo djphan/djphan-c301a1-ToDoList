@@ -2,13 +2,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="cs.ualberta.ca.djphan_301a1.MainActivity" >
 
-    
     <item android:id="@+id/action_add" 
-        android:showAsAction="ifRoom" android:title="@string/action_add">
-    </item>
+        android:title="@string/action_add"
+        android:icon="@drawable/ic_action_new"
+        android:showAsAction="ifRoom" />
+    
+    <item android:id="@+id/action_archive" 
+        android:title="@string/action_archive"
+        android:icon="@drawable/ic_action_collection"
+        android:showAsAction="ifRoom" />
+    
+    <item android:id="@+id/action_email" 
+        android:title="@string/action_email"
+        android:icon="@drawable/ic_action_email"
+        android:showAsAction="ifRoom" />
+    
+    <item android:id="@+id/action_stats" 
+        android:title="@string/action_stats"
+        android:icon="@drawable/ic_action_about"
+        android:showAsAction="ifRoom" />
     
     <item android:id="@+id/action_settings" 
-        android:showAsAction="never" 
-        android:title="@string/action_settings" />
+        android:title="@string/action_settings" 
+        android:showAsAction="never" />
 
 </menu>

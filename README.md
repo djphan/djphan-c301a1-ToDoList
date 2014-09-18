@@ -1,4 +1,4 @@
-djphan_301_a1
+djphan_301a1
 =============
 
 CMPUT 301 - A1 - To Do List Application (written in Java)
