@@ -36,7 +36,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -98,6 +100,17 @@ public class MainActivity extends Activity {
     	Toast.makeText(this, "List Statistics", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, StatsActivity.class);
     	startActivity(intent);
+	}
+	
+	public void addToDoListMain (View v) {
+		Toast.makeText(this, "Added Item", Toast.LENGTH_SHORT).show();
+		ToDoListController listcontroller = new ToDoListController();
+		EditText textview = (EditText) findViewById(R.id.add_maintextfield);
+		listcontroller.addItem(new ListItem (textview.getText().toString(), false, false));
+	}
+	
+	public void delToDoListMain (View v) {
+		Toast.makeText(this, "Deleted Item", Toast.LENGTH_SHORT).show();
 	}
 
 }

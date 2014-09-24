@@ -35,4 +35,20 @@ public class ListItem {
 		this.checkArchive = checkArchive;
 	}
 	
+	public String toString () {
+		return this.listString;
+	}
+	
+	public String outputEmailString () {
+		// This method allows you to output a string value of the list Item for email
+		String toDoEmail = this.listString;
+		if (this.checkItem == true) {
+			toDoEmail += "[X]";
+		} else {
+			toDoEmail += "[ ]";
+		}
+		
+		return toDoEmail;
+	}
+	
 }
