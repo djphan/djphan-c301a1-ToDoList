@@ -19,7 +19,7 @@ public class ListItem {
 		this.listString = listString;
 	}
 	
-	public boolean getCheckItem () {
+	public boolean getCheckIem () {
 		return this.checkItem;
 	}
 	
@@ -36,7 +36,8 @@ public class ListItem {
 	}
 	
 	public String toString () {
-		return this.listString;
+		// Method for adapters to use
+		return getListItem();
 	}
 	
 	public String outputEmailString () {

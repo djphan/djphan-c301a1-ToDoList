@@ -13,13 +13,12 @@
         android:layout_marginTop="19dp"
         android:text="Summary Statistics" />
 
-    <TextView
-        android:id="@+id/textStatsBody"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/statsViewList"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Title"
         android:layout_below="@+id/Title"
-        android:layout_marginTop="16dp"
-        android:text="Nothing" />
+        android:layout_centerHorizontal="true" >
+    </ListView>
 
 </RelativeLayout>

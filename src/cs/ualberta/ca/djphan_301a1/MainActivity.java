@@ -44,17 +44,35 @@ import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class MainActivity extends Activity {
-	
-	private ArrayList<ListItem> toDoList;
-	private ArrayAdapter<ListItem> toDoListViewAdapter;
-	private ListView oldList;
+
+	protected ListView oldList;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        
+        // Code to populate the list view adapted from StudentPicker example
+        ListView listview = (ListView) findViewById(R.id.mainListView);
+        Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
+        final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
+        final ArrayAdapter<ListItem> toDoListViewAdapter = new ArrayAdapter<ListItem>(this, android.R.layout.simple_list_item_1, toDoList);
+        listview.setAdapter(toDoListViewAdapter);
+        
+        /*
+        ToDoListController.getToDoList().addListener(new Listner()) {
+        	@Override
+        	public void update () {
+        		list.clear()
+        		Collection<To>
+        	}
+        	
+        }
+       */
     }
 
     @Override
@@ -93,6 +111,8 @@ public class MainActivity extends Activity {
 	public void openActionArchive() {
 		// Provides the UI functions to switch to the Archive Layout Window
     	Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();		
+    	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+    	startActivity(intent);
 	}
 
 	public void openActionStats() {
@@ -111,6 +131,8 @@ public class MainActivity extends Activity {
 	
 	public void delToDoListMain (View v) {
 		Toast.makeText(this, "Deleted Item", Toast.LENGTH_SHORT).show();
+		ToDoListController listcontroller = new ToDoListController();
+		listcontroller.removeItem(null);
 	}
 
 }

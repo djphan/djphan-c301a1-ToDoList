@@ -6,9 +6,11 @@ import java.util.Collection;
 public class ToDoList {
 	
 	private ArrayList<ListItem> toDoList;
+	private ArrayList<Listener> listeners;
 	
 	public ToDoList() {
 		toDoList = new ArrayList<ListItem>();
+		listeners = new ArrayList<Listener>();
 	}
 	
 	public Collection<ListItem> getList() {
@@ -17,12 +19,28 @@ public class ToDoList {
 	
 	public void addListItem (ListItem listItem) {
 		toDoList.add(listItem);
+		notifyListners();
 	}
 
 	public void removeListItem (ListItem listItem) {
 		toDoList.remove(listItem);
+		notifyListners();
 	} 
 	
+	public void addListners() {
+		
+	}
+	
+	private void notifyListners() {
+		// Function to notify listeners that a change occurred to update views.
+		// Code is based around the Hindle Student Picker Tutorial
+		
+		/*for (Listener listener : listeners) {
+			listeners.update();
+		}		
+		*/
+	}
+
 	public int countTotalListItem () {
 		return toDoList.size();	
 	}
