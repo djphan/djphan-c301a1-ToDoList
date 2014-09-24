@@ -3,16 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="19dp"
-        android:text="Summary Statistics" />
-
     <ListView
         android:id="@+id/statsViewList"
         android:layout_width="match_parent"
@@ -20,5 +10,13 @@
         android:layout_below="@+id/Title"
         android:layout_centerHorizontal="true" >
     </ListView>
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/action_stats" />
 
 </RelativeLayout>

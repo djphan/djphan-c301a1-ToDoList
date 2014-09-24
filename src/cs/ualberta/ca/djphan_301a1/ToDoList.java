@@ -28,17 +28,17 @@ public class ToDoList {
 	} 
 	
 	public void addListners() {
-		
+		listeners.add();
 	}
 	
 	private void notifyListners() {
 		// Function to notify listeners that a change occurred to update views.
 		// Code is based around the Hindle Student Picker Tutorial
 		
-		/*for (Listener listener : listeners) {
-			listeners.update();
+		for (Listener listener : listeners) {
+			((Listener) listeners).update();
 		}		
-		*/
+		
 	}
 
 	public int countTotalListItem () {

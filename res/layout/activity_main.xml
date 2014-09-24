@@ -33,7 +33,7 @@
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/add_button"
         android:ems="10"
-        android:hint="Add To-Do Item" />
+        android:hint="@string/add_hint" />
 
     <Button
         android:id="@+id/add_button"
@@ -61,6 +61,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/maindelbutton"
-        android:text="Archive" />
+        android:text="@string/action_archive" />
 
 </RelativeLayout>
