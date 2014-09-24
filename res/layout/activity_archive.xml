@@ -3,12 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <ListView
+        android:id="@+id/archiveListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/archive_addbutton"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/archiveTitle" >
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/archiveTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/archivetitle" />
+
     <Button
         android:id="@+id/archive_delbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/archive_addbutton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:background="@drawable/d_action_discard" />
 
     <Button
@@ -19,43 +39,24 @@
         android:layout_alignParentRight="true"
         android:background="@drawable/d_action_new" />
 
+    <EditText
+        android:id="@+id/archiveTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/archive_addbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/archiveListView"
+        android:layout_toLeftOf="@+id/archive_addbutton"
+        android:ems="10"
+        android:hint="@string/add_hint" />
+
     <Button
         android:id="@+id/unarchive_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/archive_delbutton"
+        android:layout_alignRight="@+id/archiveTextField"
         android:text="@string/action_unarchive" />
-
-    <EditText
-        android:id="@+id/archiveTextField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/unarchive_button"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/archive_addbutton"
-        android:ems="10"
-        android:hint="@string/add_hint" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/archiveTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/archivetitle" />
-
-    <ListView
-        android:id="@+id/archiveListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/archive_addbutton"
-        android:layout_below="@+id/archiveTitle" >
-
-    </ListView>
 
 </RelativeLayout>

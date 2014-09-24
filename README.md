@@ -46,7 +46,6 @@ the conditions of the Eclipse Public License 1.0 while all other content
 falls under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 
 Germany license. 
 
-
 2.
 3.
 4.
