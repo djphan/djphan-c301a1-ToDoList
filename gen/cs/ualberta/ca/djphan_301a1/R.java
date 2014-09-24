@@ -22,33 +22,44 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_action_about=0x7f020000;
-        public static final int ic_action_collection=0x7f020001;
-        public static final int ic_action_discard=0x7f020002;
-        public static final int ic_action_email=0x7f020003;
-        public static final int ic_action_help=0x7f020004;
-        public static final int ic_action_new=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
+        public static final int d_action_discard=0x7f020000;
+        public static final int d_action_new=0x7f020001;
+        public static final int ic_action_about=0x7f020002;
+        public static final int ic_action_collection=0x7f020003;
+        public static final int ic_action_discard=0x7f020004;
+        public static final int ic_action_email=0x7f020005;
+        public static final int ic_action_help=0x7f020006;
+        public static final int ic_action_new=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
     }
     public static final class id {
-        public static final int CheckBox=0x7f080002;
-        public static final int action_add=0x7f080005;
-        public static final int action_archive=0x7f080006;
-        public static final int action_email=0x7f080007;
-        public static final int action_settings=0x7f080009;
-        public static final int action_stats=0x7f080008;
-        public static final int add_texttitle=0x7f080004;
-        public static final int addtextfield=0x7f080003;
+        public static final int CheckBox=0x7f080008;
+        public static final int Title=0x7f080006;
+        public static final int action_archive=0x7f08000c;
+        public static final int action_email=0x7f08000d;
+        public static final int action_settings=0x7f08000b;
+        public static final int action_stats=0x7f08000e;
+        public static final int add_button=0x7f080002;
+        public static final int add_maintextfield=0x7f080003;
+        public static final int add_texttitle=0x7f08000a;
+        public static final int addmaintextfield=0x7f080009;
         public static final int listView1=0x7f080001;
-        public static final int textView1=0x7f080000;
+        public static final int mainarchivebutton=0x7f080005;
+        public static final int maindelbutton=0x7f080004;
+        public static final int statsTitle=0x7f080000;
+        public static final int textStatsBody=0x7f080007;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int todolist_item=0x7f030001;
-        public static final int todolist_textitem=0x7f030002;
+        public static final int activity_archive=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_stats=0x7f030002;
+        public static final int todolist_item=0x7f030003;
+        public static final int todolist_textitem=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
+        public static final int archive=0x7f070000;
+        public static final int main=0x7f070001;
+        public static final int stats=0x7f070002;
     }
     public static final class string {
         public static final int action_add=0x7f050002;
@@ -59,7 +70,15 @@ public final class R {
         public static final int add_hint=0x7f050008;
         public static final int add_texttitle=0x7f050007;
         public static final int app_name=0x7f050000;
+        public static final int hello_world=0x7f05000f;
+        public static final int title_activity_archive=0x7f050010;
+        public static final int title_activity_stats=0x7f05000e;
         public static final int todo_title=0x7f050001;
+        public static final int total_archivedToDo=0x7f05000b;
+        public static final int total_checkedToDo=0x7f050009;
+        public static final int total_checkedarchiveTodo=0x7f05000c;
+        public static final int total_uncheckedToDo=0x7f05000a;
+        public static final int total_uncheckedarchiveTodo=0x7f05000d;
     }
     public static final class style {
         /** 

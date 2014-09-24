@@ -21,6 +21,18 @@ public class ToDoList {
 
 	public void removeListItem (ListItem listItem) {
 		toDoList.remove(listItem);
+	} 
+	
+	public int countTotalListItem () {
+		return toDoList.size();	
 	}
- 	
+	
+	public int countCheckedItem () {
+		//int countCItems = Collection.frequency(toDoList, );
+		return 0;
+	}
+	
+	public void countArchivedItem () {
+		}
+
 }

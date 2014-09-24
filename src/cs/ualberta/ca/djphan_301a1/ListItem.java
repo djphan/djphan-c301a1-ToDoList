@@ -28,8 +28,7 @@ public class ListItem {
 	}
 	
 	public boolean getCheckArchive () {
-		return this.checkArchive;
-		
+		return this.checkArchive;	
 	}
 	
 	public void setCheckArchive (Boolean checkArchive) {

@@ -32,11 +32,13 @@ You can contact the author at djphan [at] ualberta [dot] ca.
 package cs.ualberta.ca.djphan_301a1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -59,32 +61,43 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-        case R.id.action_add:
-        	return true;
-        
+    	switch (item.getItemId()) {
+
         case R.id.action_archive:
+        	openActionArchive();
         	return true;
         	
         case R.id.action_email:
         	return true;
         	
         case R.id.action_stats:
+        	openActionStats();
         	return true;
-        	
-        case R.id.action_settings:
-        	return true;
-	    
+
         default:
         	return super.onOptionsItemSelected(item);
 	        
         }
 
     }
+
+	public void openActionArchive() {
+		// Provides the UI functions to switch to the Archive Layout Window
+    	Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();		
+	}
+
+	public void openActionStats() {
+		// Provides the UI functions to switch to the Statistics Layout Window
+    	Toast.makeText(this, "List Statistics", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, StatsActivity.class);
+    	startActivity(intent);
+	}
+
 }
