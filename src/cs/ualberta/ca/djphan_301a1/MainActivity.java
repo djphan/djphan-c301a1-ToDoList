@@ -48,14 +48,13 @@ import java.util.Collection;
 
 public class MainActivity extends Activity {
 
-	protected ListView oldList;
+	protected ListView todoList;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        
+                
         // Code to populate the list view adapted from StudentPicker example
         ListView listview = (ListView) findViewById(R.id.mainListView);
         Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
@@ -63,18 +62,17 @@ public class MainActivity extends Activity {
         final ArrayAdapter<ListItem> toDoListViewAdapter = new ArrayAdapter<ListItem>(this, android.R.layout.simple_list_item_1, toDoList);
         listview.setAdapter(toDoListViewAdapter);
         
-        /*
-        ToDoListController.getToDoList().addListener(new Listner()) {
+        ToDoListController.getToDoList().addListener(new Listener() {
         	@Override
         	public void update () {
-        		list.clear()
-        		Collection<To>
-        	}
-        	
+        		toDoList.clear();
+        		Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
+        		toDoList.addAll(listItem);
+        		toDoListViewAdapter.notifyDataSetChanged();
+        	}});
+    
         }
-       */
-    }
-
+        
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

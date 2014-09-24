@@ -33,20 +33,26 @@ public final class R {
         public static final int ic_launcher=0x7f020008;
     }
     public static final class id {
-        public static final int CheckBox=0x7f080008;
-        public static final int Title=0x7f080006;
-        public static final int action_archive=0x7f08000b;
-        public static final int action_email=0x7f08000c;
-        public static final int action_stats=0x7f08000d;
-        public static final int add_button=0x7f080002;
-        public static final int add_maintextfield=0x7f080003;
-        public static final int add_texttitle=0x7f08000a;
-        public static final int addmaintextfield=0x7f080009;
-        public static final int mainListView=0x7f080001;
-        public static final int mainarchivebutton=0x7f080005;
-        public static final int maindelbutton=0x7f080004;
-        public static final int statsTitle=0x7f080000;
-        public static final int statsViewList=0x7f080007;
+        public static final int CheckBox=0x7f08000e;
+        public static final int Title=0x7f08000d;
+        public static final int action_archive=0x7f080011;
+        public static final int action_email=0x7f080012;
+        public static final int action_stats=0x7f080013;
+        public static final int add_button=0x7f080008;
+        public static final int add_maintextfield=0x7f080009;
+        public static final int addmaintextfield=0x7f08000f;
+        public static final int archiveListView=0x7f080000;
+        public static final int archiveTextField=0x7f080004;
+        public static final int archiveTitle=0x7f080002;
+        public static final int archive_addbutton=0x7f080001;
+        public static final int archive_delbutton=0x7f080003;
+        public static final int mainListView=0x7f080007;
+        public static final int mainarchivebutton=0x7f08000b;
+        public static final int maindelbutton=0x7f08000a;
+        public static final int statsTitle=0x7f080006;
+        public static final int statsViewList=0x7f08000c;
+        public static final int textView=0x7f080010;
+        public static final int unarchive_button=0x7f080005;
     }
     public static final class layout {
         public static final int activity_archive=0x7f030000;
@@ -60,22 +66,20 @@ public final class R {
     }
     public static final class string {
         public static final int action_add=0x7f050002;
-        public static final int action_archive=0x7f050003;
-        public static final int action_email=0x7f050004;
-        public static final int action_settings=0x7f050006;
-        public static final int action_stats=0x7f050005;
-        public static final int add_hint=0x7f050008;
-        public static final int add_texttitle=0x7f050007;
+        public static final int action_archive=0x7f050005;
+        public static final int action_email=0x7f050008;
+        public static final int action_stats=0x7f050009;
+        public static final int action_unarchive=0x7f050006;
+        public static final int add_hint=0x7f050004;
+        public static final int add_texttitle=0x7f050003;
         public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f05000f;
-        public static final int title_activity_archive=0x7f050010;
-        public static final int title_activity_stats=0x7f05000e;
+        public static final int archivetitle=0x7f050007;
         public static final int todo_title=0x7f050001;
-        public static final int total_archivedToDo=0x7f05000b;
-        public static final int total_checkedToDo=0x7f050009;
-        public static final int total_checkedarchiveTodo=0x7f05000c;
-        public static final int total_uncheckedToDo=0x7f05000a;
-        public static final int total_uncheckedarchiveTodo=0x7f05000d;
+        public static final int total_archivedToDo=0x7f05000c;
+        public static final int total_checkedToDo=0x7f05000a;
+        public static final int total_checkedarchiveTodo=0x7f05000d;
+        public static final int total_uncheckedToDo=0x7f05000b;
+        public static final int total_uncheckedarchiveTodo=0x7f05000e;
     }
     public static final class style {
         /** 

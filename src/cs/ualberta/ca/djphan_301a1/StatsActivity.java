@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class StatsActivity extends Activity {
 
@@ -11,6 +12,9 @@ public class StatsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats);
+		
+		// Adapted List View taken from Hindle tutorial and Volgella tutorial
+		final ListView mainStatsView = (ListView) findViewById(R.id.statsViewList);
 	}
 
 	@Override

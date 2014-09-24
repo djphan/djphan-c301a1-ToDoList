@@ -11,9 +11,8 @@ public class ToDoListAdapter extends ArrayAdapter<String>{
 	// the checked box element with an edit text field to allow 
 	// for the user to edit their ListItem
 	
-	private final Context context;
-	private final String[] listStringValues;
-	
+	protected final Context context;
+	protected final String[] listStringValues;
 	
 	public ToDoListAdapter(Context context, String[] listStringValues) {
 		// Figure out which R.Layout value to use
