@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/add_button"
         android:layout_alignLeft="@+id/statsTitle"
-        android:layout_below="@+id/statsTitle" >
+        android:layout_below="@+id/statsTitle"
+        android:clickable="false" >
 
     </ListView>
 

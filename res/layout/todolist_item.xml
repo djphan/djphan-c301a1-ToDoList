@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:clickable="true" >
 
     <CheckBox
         android:id="@+id/CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:checked="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
-    <EditText
-        android:id="@+id/addmaintextfield"
+    <TextView
+        android:id="@+id/addListTextMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/CheckBox"
         android:layout_alignBottom="@+id/CheckBox"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/CheckBox"
-        android:ems="10"
-        android:hint="@string/add_hint" >
-
-        <requestFocus />
-    </EditText>
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
 </RelativeLayout>

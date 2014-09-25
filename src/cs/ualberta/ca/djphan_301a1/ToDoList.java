@@ -1,10 +1,11 @@
 package cs.ualberta.ca.djphan_301a1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class ToDoList {
-	
+public class ToDoList implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<ListItem> toDoList;
 	private ArrayList<Listener> listeners;
 	
@@ -44,16 +45,28 @@ public class ToDoList {
 		}			
 	}
 
-	public int countTotalListItem () {
-		return toDoList.size();	
+	public int countTotalItems() {
+		return toDoList.size();
 	}
 	
 	public int countCheckedItem () {
-		//int countCItems = Collection.frequency(toDoList, );
-		return 0;
+		int counter = 0;
+		for (ListItem todoItem : toDoList) {
+			if (todoItem.getCheckItem() == true ){
+				counter += 1;
+			}
+		}
+		return counter;
 	}
 	
-	public void countArchivedItem () {
+	public int countArchivedItem () {
+		int counter = 0;
+		for (ListItem todoItem : toDoList) {
+			if (todoItem.getCheckArchive() == true ){
+				counter += 1;
+			}
+		}
+		return counter;
 		}
 
 }

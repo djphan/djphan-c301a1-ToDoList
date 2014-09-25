@@ -8,20 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/archive_addbutton"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/archiveTitle" >
+        android:layout_alignParentRight="true" >
 
     </ListView>
-
-    <TextView
-        android:id="@+id/archiveTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/archivetitle" />
 
     <Button
         android:id="@+id/archive_delbutton"

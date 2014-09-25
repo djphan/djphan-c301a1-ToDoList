@@ -37,6 +37,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -47,8 +51,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class MainActivity extends Activity {
-
-	protected ListView todoList;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,9 @@ public class MainActivity extends Activity {
         ListView listview = (ListView) findViewById(R.id.mainListView);
         Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
         final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
-        final ArrayAdapter<ListItem> toDoListViewAdapter = new ArrayAdapter<ListItem>(this, android.R.layout.simple_list_item_1, toDoList);
+        final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList);
         listview.setAdapter(toDoListViewAdapter);
+        listview.setItemsCanFocus(true);
         
         ToDoListController.getToDoList().addListener(new Listener() {
         	@Override
@@ -70,7 +73,8 @@ public class MainActivity extends Activity {
         		toDoList.addAll(listItem);
         		toDoListViewAdapter.notifyDataSetChanged();
         	}});
-    
+       
+        
         }
         
     @Override
@@ -80,7 +84,6 @@ public class MainActivity extends Activity {
         return true;
     }
     
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -125,6 +128,8 @@ public class MainActivity extends Activity {
 		ToDoListController listcontroller = new ToDoListController();
 		EditText textview = (EditText) findViewById(R.id.add_maintextfield);
 		listcontroller.addItem(new ListItem (textview.getText().toString(), false, false));
+		// Clear The Text Field for next entry
+		textview.setText("");
 	}
 	
 	public void delToDoListMain (View v) {
@@ -132,5 +137,6 @@ public class MainActivity extends Activity {
 		ToDoListController listcontroller = new ToDoListController();
 		listcontroller.removeItem(null);
 	}
+	
 
 }

@@ -1,6 +1,5 @@
 package cs.ualberta.ca.djphan_301a1;
 
-import ca.ualberta.cs.lonelytwitter.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;

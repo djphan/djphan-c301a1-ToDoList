@@ -1,6 +1,9 @@
 package cs.ualberta.ca.djphan_301a1;
 
-public class ListItem {
+import java.io.Serializable;
+
+public class ListItem implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String listString; // ToDo List item
 	private Boolean checkItem; // Checked value
 	private Boolean checkArchive; // Archived value
@@ -19,7 +22,7 @@ public class ListItem {
 		this.listString = listString;
 	}
 	
-	public boolean getCheckIem () {
+	public boolean getCheckItem () {
 		return this.checkItem;
 	}
 	
