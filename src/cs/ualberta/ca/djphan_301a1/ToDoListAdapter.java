@@ -3,8 +3,11 @@ package cs.ualberta.ca.djphan_301a1;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,8 +66,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 		final ListItem item = (ListItem) this.getItem(position);
 		TextView listBody;
 		CheckBox checkBox;
-		
-	     	     
+		 	     
 	     if (convertView == null) {
 	         convertView = (RelativeLayout) inflater.inflate(R.layout.todolist_item, null);
 	          
@@ -98,14 +100,33 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 
 	     convertView.setClickable(true);
 	     convertView.setFocusable(true);
-	     convertView.setOnClickListener(new OnClickListener() {
-	        	
-	    	 @Override
-	         public void onClick(View view) {	
-	    		 Toast.makeText(context, "This item is: " + item.getListItem(), Toast.LENGTH_SHORT).show();
-	        		
-	        	}
+	     convertView.setOnLongClickListener(new OnLongClickListener() {
 
+			@Override
+			public boolean onLongClick(View v) {
+				AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(context);
+				alertdialogbuilder.setMessage("Delete " + item.getListItem() +" ?");
+				alertdialogbuilder.setCancelable(true);
+				alertdialogbuilder.setPositiveButton("Delete", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						ToDoListController listcontroller = new ToDoListController();
+						listcontroller.removeItem(item);
+					}
+
+				});
+				alertdialogbuilder.setNegativeButton("Cancel", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+
+				});
+
+				alertdialogbuilder.show();
+				return false;
+			}
+	        	
+	   
 	        });
 	        
 	     checkBox.setTag(item);

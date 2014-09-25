@@ -132,11 +132,5 @@ public class MainActivity extends Activity {
 		textview.setText("");
 	}
 	
-	public void delToDoListMain (View v) {
-		Toast.makeText(this, "Deleted Item", Toast.LENGTH_SHORT).show();
-		ToDoListController listcontroller = new ToDoListController();
-		listcontroller.removeItem(null);
-	}
-	
 
 }
