@@ -3,21 +3,33 @@ package cs.ualberta.ca.djphan_301a1;
 public class ToDoListController {
 	
 	private static ToDoList toDoList = null;
-	static public ToDoList getToDoList () {
+	
+	public static ToDoList getToDoList (String args) {
 		if (toDoList == null) {
 			// Create a new toDoList
 			toDoList = new ToDoList();
 		}
 		
-		return toDoList;
+		switch (args) {
+		case "ARCHIVELIST":
+			return toDoList;
+		case  "MAINLIST":
+			return toDoList;
+		default:
+			return toDoList;
+		}
+
+		
 	}
 
-	public void addItem (ListItem item) {
-		getToDoList().addListItem(item);
+	public void addItem (String args, ListItem item) {
+		getToDoList(args).addListItem(item);
 	}
 
-	public void removeItem(ListItem item) {
-		getToDoList().removeListItem(item);	
+	public void removeItem(String args, ListItem item) {
+		getToDoList(args).removeListItem(item);	
 	}
+	
+
 	
 }

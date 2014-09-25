@@ -1,10 +1,10 @@
 package cs.ualberta.ca.djphan_301a1;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class StatsActivity extends Activity {
@@ -12,7 +12,11 @@ public class StatsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_stats);
+		//setContentView(R.layout.activity_stats);
+		//Bundle sBundle = getIntent().getBundleExtra("bundleList");
+		//ToDoList fullToDoList = (ToDoList) sBundle.get("arrayList");
+		
+		//updateStats(fullToDoList);
 		
 	}
 

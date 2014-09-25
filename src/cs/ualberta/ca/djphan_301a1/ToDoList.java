@@ -22,7 +22,7 @@ public class ToDoList implements Serializable{
 		toDoList.add(listItem);
 		notifyListners();
 	}
-
+	
 
 	public void removeListItem (ListItem listItem) {
 		toDoList.remove(listItem);
@@ -45,9 +45,12 @@ public class ToDoList implements Serializable{
 		}			
 	}
 
+	// Move this to Controller
 	public int countTotalItems() {
 		return toDoList.size();
 	}
+	
+	public void setArchive
 	
 	public int countCheckedItem () {
 		int counter = 0;

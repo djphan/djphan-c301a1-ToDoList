@@ -50,32 +50,52 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import cs.ualberta.ca.djphan_301a1data.DataManager;
+import cs.ualberta.ca.djphan_301a1data.iDataManager;
+
 public class MainActivity extends Activity {
+	
+	// Keep track of ArrayLists<ListItem> for the different layouts to view
+	//protected ToDoList listOfItems = new ToDoList();
+	protected ArrayList<ListItem> listOfItems;
+	protected ArrayList<ListItem> listOfArchivedItems;
+	
+	protected iDataManager dataManager;
+	protected ListView listview;
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DataManager dataManager = new DataManager(this);
                 
         // Code to populate the list view adapted from StudentPicker example
-        ListView listview = (ListView) findViewById(R.id.mainListView);
-        Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
-        final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
-        final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList);
+        listview = (ListView) findViewById(R.id.mainListView);
+        Collection<ListItem> listItem = ToDoListController.getToDoList("").getList();
+        listOfItems = new ArrayList<ListItem>(listItem);
+        final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,listOfItems);
         listview.setAdapter(toDoListViewAdapter);
         listview.setItemsCanFocus(true);
         
-        ToDoListController.getToDoList().addListener(new Listener() {
+        ToDoListController.getToDoList("").addListener(new Listener() {
         	@Override
         	public void update () {
-        		toDoList.clear();
-        		Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
-        		toDoList.addAll(listItem);
+        		listOfItems.clear();
+        		Collection<ListItem> listItem = ToDoListController.getToDoList("").getList();
+        		listOfItems.addAll(listItem);
         		toDoListViewAdapter.notifyDataSetChanged();
         	}});
        
         
         }
+    
+    @Override
+    protected void onStart() {
+    	super.onStart();
+    	//listOfItems = dataManager.loadToDoList();
+    	
+    }
         
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -120,6 +140,9 @@ public class MainActivity extends Activity {
 		// Provides the UI functions to switch to the Statistics Layout Window
     	Toast.makeText(this, "List Statistics", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, StatsActivity.class);
+		Bundle sBundle = new Bundle();
+		//sBundle.putSerializable("arrayList", listOfItems);
+		//intent.putExtra("bundleList", sBundle);
     	startActivity(intent);
 	}
 	
@@ -127,7 +150,7 @@ public class MainActivity extends Activity {
 		Toast.makeText(this, "Added Item", Toast.LENGTH_SHORT).show();
 		ToDoListController listcontroller = new ToDoListController();
 		EditText textview = (EditText) findViewById(R.id.add_maintextfield);
-		listcontroller.addItem(new ListItem (textview.getText().toString(), false, false));
+		listcontroller.addItem("", (new ListItem (textview.getText().toString(), false, false)));
 		// Clear The Text Field for next entry
 		textview.setText("");
 	}
