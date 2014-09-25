@@ -1,5 +1,7 @@
 package cs.ualberta.ca.djphan_301a1;
 
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,8 @@ public class ToDoListAdapter extends ArrayAdapter<String>{
 	// Custom Adapter required to populate the ListView. This adapter contains
 	// the checked box element with an edit text field to allow 
 	// for the user to edit their ListItem
-	
+	private ArrayList<ListItem> listToDoItems;
+
 	protected final Context context;
 	protected final String[] listStringValues;
 	

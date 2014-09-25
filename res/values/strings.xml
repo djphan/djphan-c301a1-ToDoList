@@ -20,5 +20,6 @@
     <string name="total_archivedToDo">Total Number of Archived ToDo List Items:</string>
     <string name="total_checkedarchiveTodo">Total Number of Checked Archived ToDo List Items:</string>
     <string name="total_uncheckedarchiveTodo">Total Number of Unchecked Archived ToDo List Items:</string>
-
+	<string name="placeholder_statsvalue">9999999999</string>
+    
 </resources>

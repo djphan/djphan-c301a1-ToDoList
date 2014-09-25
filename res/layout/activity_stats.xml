@@ -3,20 +3,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ListView
-        android:id="@+id/statsViewList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/Title" >
-    </ListView>
-
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/statstitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/action_stats" />
+        android:layout_alignLeft="@+id/statstitle1"
+        android:layout_alignRight="@+id/statstitle1"
+        android:layout_below="@+id/totalArchiveToDoText"
+        android:layout_marginTop="17dp"
+        android:text="@string/total_checkedarchiveTodo" />
+
+    <TextView
+        android:id="@+id/statstitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/statstitle2"
+        android:layout_alignRight="@+id/statstitle2"
+        android:layout_below="@+id/checkedArchiveToDoText"
+        android:layout_marginTop="19dp"
+        android:text="@string/total_uncheckedarchiveTodo" />
+
+    <TextView
+        android:id="@+id/uncheckedArchiveToDoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/checkedArchiveToDoText"
+        android:layout_below="@+id/statstitle3"
+        android:layout_marginTop="15dp"
+        android:text="@string/placeholder_statsvalue" />
+
+    <TextView
+        android:id="@+id/checkedArchiveToDoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalArchiveToDoText"
+        android:layout_below="@+id/statstitle2"
+        android:text="@string/placeholder_statsvalue" />
+
+    <TextView
+        android:id="@+id/statstitle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/statstitle3"
+        android:layout_below="@+id/uncheckedArchiveToDoText"
+        android:layout_marginTop="18dp"
+        android:text="@string/total_checkedToDo" />
+
+    <TextView
+        android:id="@+id/checkedToDoListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/uncheckedArchiveToDoText"
+        android:layout_below="@+id/statstitle4"
+        android:layout_marginTop="16dp"
+        android:text="@string/placeholder_statsvalue" />
+
+    <TextView
+        android:id="@+id/statstitle5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/statstitle4"
+        android:layout_alignRight="@+id/statstitle4"
+        android:layout_below="@+id/checkedToDoListText"
+        android:layout_marginTop="18dp"
+        android:text="@string/total_uncheckedToDo" />
+
+    <TextView
+        android:id="@+id/statstitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/total_archivedToDo" />
+
+    <TextView
+        android:id="@+id/totalArchiveToDoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statstitle1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="@string/placeholder_statsvalue" />
+
+    <TextView
+        android:id="@+id/uncheckedToDoListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/checkedToDoListText"
+        android:layout_below="@+id/statstitle5"
+        android:text="@string/placeholder_statsvalue" />
 
 </RelativeLayout>
