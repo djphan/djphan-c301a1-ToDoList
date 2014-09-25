@@ -50,7 +50,6 @@ public class ToDoList implements Serializable{
 		return toDoList.size();
 	}
 	
-	public void setArchive
 	
 	public int countCheckedItem () {
 		int counter = 0;

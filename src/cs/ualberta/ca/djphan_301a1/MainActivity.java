@@ -72,17 +72,17 @@ public class MainActivity extends Activity {
                 
         // Code to populate the list view adapted from StudentPicker example
         listview = (ListView) findViewById(R.id.mainListView);
-        Collection<ListItem> listItem = ToDoListController.getToDoList("").getList();
+        Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
         listOfItems = new ArrayList<ListItem>(listItem);
         final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,listOfItems);
         listview.setAdapter(toDoListViewAdapter);
         listview.setItemsCanFocus(true);
         
-        ToDoListController.getToDoList("").addListener(new Listener() {
+        ToDoListController.getToDoList().addListener(new Listener() {
         	@Override
         	public void update () {
         		listOfItems.clear();
-        		Collection<ListItem> listItem = ToDoListController.getToDoList("").getList();
+        		Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
         		listOfItems.addAll(listItem);
         		toDoListViewAdapter.notifyDataSetChanged();
         	}});
@@ -150,10 +150,16 @@ public class MainActivity extends Activity {
 		Toast.makeText(this, "Added Item", Toast.LENGTH_SHORT).show();
 		ToDoListController listcontroller = new ToDoListController();
 		EditText textview = (EditText) findViewById(R.id.add_maintextfield);
-		listcontroller.addItem("", (new ListItem (textview.getText().toString(), false, false)));
+		listcontroller.addItem((new ListItem (textview.getText().toString(), false, false)));
 		// Clear The Text Field for next entry
 		textview.setText("");
 	}
 	
+	
+	public void archiveToDoListMain (View v) {
+		Toast.makeText(this, "Archived Item", Toast.LENGTH_SHORT).show();
+		
+		
+	}
 
 }
