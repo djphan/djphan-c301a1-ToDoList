@@ -27,8 +27,15 @@ Activity Java, back-end implementation available for viewing.
 
 Instructions
 ============
+NOTE
+====
+Check to see if the Action Bar has an overflow icon. If the icon is not there you need to select the menu button
+to switch between the activities. The menu button on the right in the emulator is the hard wired menu button
+for the phone version. This acts as the overflow button in the Action Bar and will navigate activities sucessfully.
+====
+
 Navigating between views require you to move from the Action bar in the MainMenu and
-the back button in the Android menu.
+the back button in the Android menu. 
 
 1. Selecting
 
