@@ -18,6 +18,7 @@ public class EmailHandler {
 	}
 	
 	public void sendEmail(String emailString){
+		// Email Function Create Intent using Native eMail application
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
 		intent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
@@ -25,6 +26,7 @@ public class EmailHandler {
 		intent.putExtra(Intent.EXTRA_TEXT, emailString);
 		
 		try {
+			// Catch errors if app not found to not crash
 			context.startActivity(Intent.createChooser(intent, "Send Email"));
 		} catch (android.content.ActivityNotFoundException ex) {
 		    Toast.makeText(context, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
@@ -32,37 +34,37 @@ public class EmailHandler {
 
 	}
 	
-	public void emailArrayList(ArrayList<ListItem> listItems){
+	public void emailArrayList(ArrayList<ListItem> itemsList){
 		// Method used to parse through our ArrayList of ListItems
 		// and format them into a string for the email
 		
 		String formattedEmailString = "";
 		
-		for (int index = 0; index< listItems.size(); index++){
-           ListItem toDoItem = listItems.get(index);
+		for (int index = 0; index< itemsList.size(); index++){
+           ListItem toDoItem = itemsList.get(index);
 	       formattedEmailString += toDoItem.outputEmailString() + '\n';
 		}
 	   	
-		Toast.makeText(context, "EmailString.", Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, "Email Sent.", Toast.LENGTH_SHORT).show();
 		sendEmail(formattedEmailString);
 		
 		}
 	
-	public void emailSelectArrayList(SparseBooleanArray selection, ArrayList<ListItem> listItems){
+	public void emailSelectArrayList(SparseBooleanArray selection, ArrayList<ListItem> itemsList){
 		// Method used to parse through our ArrayList of ListItems
 		// and format them into a string for the email
 		// mapped to a BooleanArray of select items
 		
 		String formattedEmailString = "";
 		
-		for (int index = 0; index< listItems.size(); index++){
+		for (int index = 0; index< itemsList.size(); index++){	
 			if(selection.valueAt(index)) {
-	           ListItem toDoItem = listItems.get(index);
+	           ListItem toDoItem = itemsList.get(index);
 		       formattedEmailString += toDoItem.outputEmailString() + '\n';
 		       
 			}
 	   	
-		Toast.makeText(context, "EmailString. Selection", Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, "Email Sent. Selection", Toast.LENGTH_SHORT).show();
 		sendEmail(formattedEmailString);
 		
 		}

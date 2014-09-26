@@ -14,6 +14,7 @@ import android.content.Context;
 import android.util.Log;
 
 public class DataManager implements iDataManager{
+	// Code Adapted from LonelyTwitter lab assignment.
 	private static final String FILENAME = "file.sav";
 	
 	private Context context;
@@ -23,6 +24,7 @@ public class DataManager implements iDataManager{
 	}
 	
 	public ArrayList<ListItem> loadToDoList() {
+		// Bug in type arragement? Pass the controller? Self-Note
 		ArrayList<ListItem> savelist = new ArrayList<ListItem>();
 
 		try {
@@ -32,7 +34,7 @@ public class DataManager implements iDataManager{
 			savelist = (ArrayList<ListItem>) ois.readObject();
 
 		} catch (Exception e) {
-			Log.i("LonelyTwitter", "Error casting");
+			Log.i("DataManager", "Error casting");
 			e.printStackTrace();
 		} 
 

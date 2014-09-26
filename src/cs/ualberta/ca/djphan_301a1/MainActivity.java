@@ -54,11 +54,10 @@ import cs.ualberta.ca.djphan_301a1data.DataManager;
 import cs.ualberta.ca.djphan_301a1data.iDataManager;
 
 public class MainActivity extends Activity {
-	private iDataManager datamanager;
-	
+	private iDataManager datamanager = new DataManager (this);
 	public ToDoListController listcontroller = new ToDoListController();
     public Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
-    public ArrayList<ListItem> toDoList;
+    public ArrayList<ListItem> toDoList; //= datamanager.loadToDoList();
     public ListView listview;
     public ToDoListAdapter toDoListViewAdapter;
 
@@ -66,10 +65,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        // Data Manager
-        datamanager = new DataManager (this);
-                
+                       
         // Code to populate the list view adapted from StudentPicker example
         listview = (ListView) findViewById(R.id.mainListView);
         toDoList = new ArrayList<ListItem>(listItem);
@@ -84,18 +80,38 @@ public class MainActivity extends Activity {
         		toDoList.clear();
         		Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
         		toDoList.addAll(listItem);
+        		datamanager.saveList(ToDoListController.getToDoList().getList());
         		toDoListViewAdapter.notifyDataSetChanged();
         	}});     
         }
-
+    @Override 
+    protected void onPause() {
+    	super.onPause();
+		datamanager.saveList(ToDoListController.getToDoList().getList());
+    }
+    
+    
     @Override
 	protected void onStart() {
 		super.onStart();
-		toDoList = datamanager.loadToDoList();
+		/*toDoList = datamanager.loadToDoList();
 		final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);
         listview.setAdapter(toDoListViewAdapter);
-	} 
-    
+        toDoListViewAdapter.notifyDataSetChanged();
+        ToDoListController.returnPubList().addListener(new Listener() {
+        	
+        	@Override
+        	public void update () {
+        		toDoList.clear();
+        		Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
+        		toDoList.addAll(listItem);
+        		datamanager.saveList(ToDoListController.getToDoList().getList());
+        		toDoListViewAdapter.notifyDataSetChanged();
+        	}});     
+        	*/
+        }
+	 
+ 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -179,7 +195,7 @@ public class MainActivity extends Activity {
 		listcontroller.addItem(0, new ListItem (textview.getText().toString(), false, false));
 		// Clear The Text Field for next entry
 		textview.setText("");
-		datamanager.saveList(listItem);
+		datamanager.saveList(ToDoListController.getToDoList().getList());
 		toDoListViewAdapter.notifyDataSetChanged();
 	}
 	

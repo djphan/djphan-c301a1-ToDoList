@@ -7,6 +7,24 @@ An application to create and store a list of items. You can check
 the items off after completion, email items, and keep track
 of completed and uncompleted items.
 
+Notes
+=====
+1. The selection feature in the E-Mail function does not work.
+The only option to e-mail currently only sends the complete ToDo List
+and Archive List. Bug involved in referencing multiple objects in ListView. Possible solution
+in E-Mail Adapter or the E-Mail Activity files requires an OnClick multiple 
+items reference.
+
+Backend implementation of emailSelectArray developed for this function 
+but could not sort out the bugs.
+
+2. Data Serialization back-end implemented but not active. Current bug
+in data streams from OnCreate to OnStart where save file overwrites
+display ArrayLists. Problem in the way the display is generated
+or sorting out data references. Sections commented out in 
+Activity Java, back-end implementation available for viewing.
+
+
 Instructions
 ============
 Navigating between views require you to move from the Action bar in the MainMenu and
@@ -47,6 +65,13 @@ the back button in the Android menu.
 7. Serialization
 	has been applied for data loading/saving.
 
+
+To Do Fixes/Considerations
+==========================
+1. Consider adding a self.emailcheck field in ListItem to implement E-Mail Selection using
+check boxes. Create LayoutXML and populate listview with current method.
+
+2. Background color fill to improve highlighting/selection actions.
 
 License
 =======
@@ -89,7 +114,10 @@ Germany license.
 
 2.
 3.
-4.
+
+4. LonelyTwitter Lab 2/3 were used as a template for the DataManager and
+Statistics Activity Page.
+
 5.
 6.
 

@@ -8,9 +8,12 @@ import EmailHandler.EmailHandler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,6 +34,40 @@ public class EMailActivity extends Activity {
 	    
         // Code to populate the list view adapted from StudentPicker example
         ListView listview = (ListView) findViewById(R.id.emailToDos);
+        listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        
+        listview.setMultiChoiceModeListener(new MultiChoiceModeListener() {
+
+			@Override
+			public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+			       return false;
+			}
+
+			@Override
+			public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public void onDestroyActionMode(ActionMode mode) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onItemCheckedStateChanged(ActionMode mode,
+					int position, long id, boolean checked) {
+				// TODO Auto-generated method stub
+				
+			} });
+        
     	final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
         final EmailAdapter emailAdapter = new EmailAdapter(this,toDoList, listcontroller);
     	emailList = toDoList;
@@ -46,6 +83,8 @@ public class EMailActivity extends Activity {
         		emailAdapter.notifyDataSetChanged();
         	}});     
     }
+	
+	
 	
 	
 	@Override

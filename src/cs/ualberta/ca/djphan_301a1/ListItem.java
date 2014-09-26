@@ -3,6 +3,8 @@ package cs.ualberta.ca.djphan_301a1;
 import java.io.Serializable;
 
 public class ListItem implements Serializable{
+	// List Object for ToDoList
+	
 	private static final long serialVersionUID = 1L;
 	private String listString; // ToDo List item
 	private Boolean checkItem; // Checked value
@@ -36,11 +38,6 @@ public class ListItem implements Serializable{
 	
 	public void setCheckArchive (Boolean checkArchive) {
 		this.checkArchive = checkArchive;
-	}
-	
-	public String toString () {
-		// Method for adapters to use
-		return getListItem();
 	}
 	
 	public String outputEmailString () {

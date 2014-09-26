@@ -20,12 +20,14 @@ public class ToDoList implements Serializable{
 	
 	public void addListItem (ListItem listItem) {
 		toDoList.add(listItem);
+		// Update UI step
 		notifyListners();
 	}
 
 
 	public void removeListItem (ListItem listItem) {
 		toDoList.remove(listItem);
+		// Update UI step
 		notifyListners();
 	} 
 	
@@ -45,6 +47,7 @@ public class ToDoList implements Serializable{
 		}			
 	}
 
+	// Counting Functions for the Stats Portion
 	public int countTotalItems() {
 		return toDoList.size();
 	}
