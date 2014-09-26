@@ -50,19 +50,30 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import cs.ualberta.ca.djphan_301a1data.DataManager;
+import cs.ualberta.ca.djphan_301a1data.iDataManager;
+
 public class MainActivity extends Activity {
+	private iDataManager datamanager;
+	
 	public ToDoListController listcontroller = new ToDoListController();
     public Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
+    public ArrayList<ListItem> toDoList;
+    public ListView listview;
+    public ToDoListAdapter toDoListViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Data Manager
+        datamanager = new DataManager (this);
                 
         // Code to populate the list view adapted from StudentPicker example
-        ListView listview = (ListView) findViewById(R.id.mainListView);
-        final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
-        final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);
+        listview = (ListView) findViewById(R.id.mainListView);
+        toDoList = new ArrayList<ListItem>(listItem);
+        toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);
         
         listview.setAdapter(toDoListViewAdapter);
         listview.setItemsCanFocus(true);
@@ -76,7 +87,15 @@ public class MainActivity extends Activity {
         		toDoListViewAdapter.notifyDataSetChanged();
         	}});     
         }
-        
+
+    @Override
+	protected void onStart() {
+		super.onStart();
+		toDoList = datamanager.loadToDoList();
+		final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);
+        listview.setAdapter(toDoListViewAdapter);
+	} 
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -160,6 +179,8 @@ public class MainActivity extends Activity {
 		listcontroller.addItem(0, new ListItem (textview.getText().toString(), false, false));
 		// Clear The Text Field for next entry
 		textview.setText("");
+		datamanager.saveList(listItem);
+		toDoListViewAdapter.notifyDataSetChanged();
 	}
 	
 
