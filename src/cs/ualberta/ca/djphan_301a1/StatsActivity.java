@@ -14,9 +14,11 @@ public class StatsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats);
-		
+		// Receive Bundle
 		Bundle sBundle = getIntent().getBundleExtra("bcontrol");
 	    ToDoListController listcontroller = (ToDoListController) sBundle.get("lcontrol");
+	    
+	    // Separate out 2 types of data to update
 	    ToDoList mainlist = ToDoListController.returnPubList();
 	    ToDoList arclist = ToDoListController.returnArchiveList();
 	    

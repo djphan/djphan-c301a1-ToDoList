@@ -30,6 +30,14 @@
             android:name=".ArchiveActivity"
             android:label="@string/action_archive" >
         </activity>
+        <activity
+            android:name=".EMailActivity"
+            android:label="@string/title_activity_email" >
+        </activity>
+        <activity
+            android:name=".EMailArchiveActivity"
+            android:label="@string/title_activity_email_archive" >
+        </activity>
     </application>
 
 </manifest>

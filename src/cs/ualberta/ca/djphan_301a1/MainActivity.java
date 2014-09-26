@@ -96,6 +96,11 @@ public class MainActivity extends Activity {
         	return true;
         	
         case R.id.action_email:
+        	openActionEmail();
+        	return true;
+        	
+        case R.id.action_emailarc:
+        	openActionArcEmail();
         	return true;
         	
         case R.id.action_stats:
@@ -113,6 +118,26 @@ public class MainActivity extends Activity {
 		// Provides the UI functions to switch to the Archive Layout Window
     	Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();		
     	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+		Bundle sBundle = new Bundle();
+		sBundle.putSerializable("lcontrol", listcontroller);
+		intent.putExtra("bcontrol", sBundle);
+    	startActivity(intent);
+	}
+	
+	public void openActionEmail() {
+		// Provides the UI functions to switch to the Archive Layout Window
+    	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();		
+    	Intent intent = new Intent(MainActivity.this, EMailActivity.class);
+		Bundle sBundle = new Bundle();
+		sBundle.putSerializable("lcontrol", listcontroller);
+		intent.putExtra("bcontrol", sBundle);
+    	startActivity(intent);
+	}
+	
+	public void openActionArcEmail() {
+		// Provides the UI functions to switch to the Archive Layout Window
+    	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();		
+    	Intent intent = new Intent(MainActivity.this, EMailArchiveActivity.class);
 		Bundle sBundle = new Bundle();
 		sBundle.putSerializable("lcontrol", listcontroller);
 		intent.putExtra("bcontrol", sBundle);

@@ -1,7 +1,12 @@
-package cs.ualberta.ca.djphan_301a1;
+package EmailHandler;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import cs.ualberta.ca.djphan_301a1.ListItem;
+import cs.ualberta.ca.djphan_301a1.R;
+import cs.ualberta.ca.djphan_301a1.ToDoList;
+import cs.ualberta.ca.djphan_301a1.ToDoListController;
 
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
@@ -20,13 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
+public class EmailAdapter extends ArrayAdapter<ListItem> {;
+
 	protected ToDoList todoListObject;
 	protected Context context;
 	protected LayoutInflater inflater;
 	public ToDoListController listcontroller;
 		
-	public ToDoListAdapter(Context context, ArrayList<ListItem> listItem, ToDoListController listcontroller) {
+	public EmailAdapter(Context context, ArrayList<ListItem> listItem, ToDoListController listcontroller) {
 		super(context, R.layout.todolist_item, R.id.addListTextMain, listItem);
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.todoListObject = todoListObject;
@@ -61,8 +67,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 			this.checkBox = checkBox;
 		}
 	}
-
-
+	
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final ListItem item = (ListItem) getItem(position);
@@ -82,9 +87,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 		    		 CheckBox checkbox = (CheckBox) view ;  
 		             ListItem item = (ListItem) checkbox.getTag();  
 		             item.setCheckItem(checkbox.isChecked());  
-		             }
-		             
-		     
+		             }	     
 		     });
 	    }
 		     else {
@@ -96,65 +99,13 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 	     convertView.setClickable(true);
 	     convertView.setFocusable(true);
 	     
-	     
-
 		 convertView.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				AlertDialog.Builder alertdialogbuilderarc = new AlertDialog.Builder(context);
-				alertdialogbuilderarc.setMessage("Set " + item.getListItem() +" archive's setting ?");
-				alertdialogbuilderarc.setCancelable(true);
-				alertdialogbuilderarc.setPositiveButton("Accept", new DialogInterface.OnClickListener(){
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						Toast.makeText(context, "Move to Archive from Main or Unarchived from Archive", Toast.LENGTH_SHORT).show();
-						item.setCheckArchive(!item.getCheckArchive());
-						listcontroller.updateTrackingLists();
-						}
-					
-					});
-					alertdialogbuilderarc.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
-						@Override
-						public void onClick(DialogInterface dialog, int which) {}
-	
-					});
-	
-					alertdialogbuilderarc.show();
-
-				}
+			public void onClick(View v) {}
 
 	  });     
 	    
 	     
-	     convertView.setOnLongClickListener(new OnLongClickListener() {
-
-			@Override
-			public boolean onLongClick(View v) {
-				AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(context);
-				alertdialogbuilder.setMessage("Delete " + item.getListItem() +" ?");
-				alertdialogbuilder.setCancelable(true);
-				alertdialogbuilder.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						ToDoListController listcontroller = new ToDoListController();
-						listcontroller.removeItem(0,item);
-						Toast.makeText(context, "Deleted Item", Toast.LENGTH_SHORT).show();
-					}
-
-				});
-				alertdialogbuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-					}
-
-				});
-
-				alertdialogbuilder.show();
-				return false;
-			}
-	        	
-	   
-	        });
 	      
 	     checkBox.setTag(item);
 	     checkBox.setChecked(item.getCheckItem());

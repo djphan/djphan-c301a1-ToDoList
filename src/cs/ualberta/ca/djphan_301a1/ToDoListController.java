@@ -41,8 +41,8 @@ public class ToDoListController implements Serializable {
 		for (ListItem items : toDoList.getList()) {
 			if (items.getCheckArchive() == false) {
 				// Case checking to update 'public interface' list
-				if (arc_todolist.getList().contains(items)) {
-					arc_todolist.removeListItem(items);	
+				if (returnArchiveList ().getList().contains(items)) {
+					returnArchiveList ().removeListItem(items);	
 				}
 				
 				if (returnPubList().getList().contains(items) == false) {
@@ -50,8 +50,8 @@ public class ToDoListController implements Serializable {
 				}
 				
 			} else {
-				if (arc_todolist.getList().contains(items) == false) {
-					arc_todolist.addListItem(items);	
+				if (returnArchiveList ().getList().contains(items) == false) {
+					returnArchiveList ().addListItem(items);	
 				}
 				
 				if (returnPubList().getList().contains(items)) {

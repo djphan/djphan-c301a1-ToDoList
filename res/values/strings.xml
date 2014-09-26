@@ -3,23 +3,23 @@
 
     <string name="app_name">djphan-ToDoList</string>
     <string name="todo_title">To Do:</string>
-    
     <string name="action_add">Add</string>
     <string name="add_texttitle">Add To Do Item</string>
     <string name="add_hint">Add To Do List Item</string>
-   
     <string name="action_archive">Archive</string>
     <string name="action_unarchive">Unarchive</string>
     <string name="archivetitle">ToDo List Archive:</string>
-    
     <string name="action_email">E-Mail</string>
-    
     <string name="action_stats">Statistics</string>
     <string name="total_checkedToDo">Total Number of Checked ToDo List Items:</string>
     <string name="total_uncheckedToDo">Total Number of Unchecked ToDo List Items:</string>
     <string name="total_archivedToDo">Total Number of Archived ToDo List Items:</string>
     <string name="total_checkedarchiveTodo">Total Number of Checked Archived ToDo List Items:</string>
     <string name="total_uncheckedarchiveTodo">Total Number of Unchecked Archived ToDo List Items:</string>
-	<string name="placeholder_statsvalue">9999999999</string>
-    
+    <string name="placeholder_statsvalue">9999999999</string>
+    <string name="title_activity_email">EMailActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_email_archive">EMailArchiveActivity</string>
+
 </resources>

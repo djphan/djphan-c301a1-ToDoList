@@ -10,11 +10,13 @@
     <item android:id="@+id/action_email" 
         android:title="@string/action_email"
         android:icon="@drawable/ic_action_email"
-        android:showAsAction="ifRoom" />
+        android:showAsAction="ifRoom" /><item android:id="@+id/action_emailarc" android:showAsAction="ifRoom" android:icon="@drawable/ic_action_email" android:title="Email ToDo Archive"></item>
     
     <item android:id="@+id/action_stats" 
         android:title="@string/action_stats"
         android:icon="@drawable/ic_action_about"
         android:showAsAction="ifRoom"/>
+    
+    
 
 </menu>

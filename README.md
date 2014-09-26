@@ -7,6 +7,47 @@ An application to create and store a list of items. You can check
 the items off after completion, email items, and keep track
 of completed and uncompleted items.
 
+Instructions
+============
+Navigating between views require you to move from the Action bar in the MainMenu and
+the back button in the Android menu.
+
+1. Selecting
+
+2. Adding
+	In the main ToDoList view you can add items to the list by typing into
+	the text field and pressing the add icon. This will update the
+	ToDoList
+
+3. Archiving
+	In both the main ToDoList view and the Archive view you must click the row
+	to archive or unarchive the ToDoList Item. A prompt will popup to verify this change.
+	
+	In the ToDoList main view this will move our item to the archive.
+	The archive can be accessed with the first icon on the action bar.
+		
+	The archive uses the same methods of the onClick method to unarchive items
+	and you can select or unselect the check box per item.
+	
+	As well the archive and the main TodDoList uses the same Delete function
+
+4. Delete
+	In both the main ToDoList view and the Archive view you must longclick the row
+	to delete the ToDoList Item. A prompt will pop up to verify this change.
+	This will delete the item from the system.
+
+5. Email
+
+
+6. Statistics
+	In the action bar on the top right on the in menu you may select the information icon.
+	This loads up the statistics page where you can watch the app keep track of the internal
+	number of ToDoList Items
+	
+7. Serialization
+	has been applied for data loading/saving.
+
+
 License
 =======
 

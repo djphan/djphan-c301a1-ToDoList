@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="cs.ualberta.ca.djphan_301a1.EMailArchiveActivity" >
+
+    <ListView
+        android:id="@+id/listViewEmailArch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/butSendSelArch"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/sendAllArch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/listViewEmailArch"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="SendAllArcToDo"
+        android:text="Send All Archived ToDo" />
+
+    <Button
+        android:id="@+id/butSendSelArch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sendAllArch"
+        android:layout_alignLeft="@+id/listViewEmailArch"
+        android:layout_alignParentRight="true"
+        android:onClick="SendSelArcToDo"
+        android:text="Send Selected Archive ToDos" />
+
+</RelativeLayout>
