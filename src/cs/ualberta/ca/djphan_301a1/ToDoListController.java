@@ -1,9 +1,11 @@
 package cs.ualberta.ca.djphan_301a1;
 
+import java.io.Serializable;
+
 import android.content.Context;
 import android.widget.Toast;
 
-public class ToDoListController {
+public class ToDoListController implements Serializable {
 	
 	// Total ToDoList
 	private static ToDoList toDoList = null;
@@ -17,9 +19,7 @@ public class ToDoListController {
 			// Create a new toDoList
 			toDoList = new ToDoList();
 		}
-		
-		return toDoList;
-		
+		return toDoList;	
 	}
 	
 	public static ToDoList returnArchiveList () {
@@ -62,24 +62,6 @@ public class ToDoListController {
 		}
 	}
 	
-	
-	public void bruteUpdateTrackinglists() {
-		// Naive method that brute forces update the lists
-		ToDoList temp_arc = new ToDoList();
-		ToDoList temp_pub = new ToDoList();
-		
-		for (ListItem items : toDoList.getList()) {
-			if ( items.getCheckArchive() == true ) {
-				temp_arc.addListItem(items);
-			} else {
-				temp_pub.addListItem(items);
-			}
-			
-		}
-		
-		arc_todolist = temp_arc;
-		pub_todolist = temp_pub;
-	}
 	
 	public void addItem (int type, ListItem item) {
 		switch (type){

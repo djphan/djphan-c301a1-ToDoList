@@ -6,46 +6,8 @@
     <ListView
         android:id="@+id/archiveListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/archive_addbutton"
-        android:layout_alignParentRight="true" >
+        android:layout_height="wrap_content" >
 
     </ListView>
-
-    <Button
-        android:id="@+id/archive_delbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/archive_addbutton"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/d_action_discard" />
-
-    <Button
-        android:id="@+id/archive_addbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/archive_delbutton"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/d_action_new" />
-
-    <EditText
-        android:id="@+id/archiveTextField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/archive_addbutton"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/archiveListView"
-        android:layout_toLeftOf="@+id/archive_addbutton"
-        android:ems="10"
-        android:hint="@string/add_hint" />
-
-    <Button
-        android:id="@+id/unarchive_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/archiveTextField"
-        android:text="@string/action_unarchive" />
 
 </RelativeLayout>

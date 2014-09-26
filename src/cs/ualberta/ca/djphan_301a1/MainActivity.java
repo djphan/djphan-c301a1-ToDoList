@@ -52,7 +52,6 @@ import java.util.Collection;
 
 public class MainActivity extends Activity {
 	public ToDoListController listcontroller = new ToDoListController();
-	public ArrayList<Integer> selectedItem = new ArrayList<Integer>();
     public Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
 
     @Override
@@ -75,9 +74,7 @@ public class MainActivity extends Activity {
         		Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
         		toDoList.addAll(listItem);
         		toDoListViewAdapter.notifyDataSetChanged();
-        	}});
-       
-        
+        	}});     
         }
         
     @Override
@@ -116,6 +113,9 @@ public class MainActivity extends Activity {
 		// Provides the UI functions to switch to the Archive Layout Window
     	Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();		
     	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+		Bundle sBundle = new Bundle();
+		sBundle.putSerializable("lcontrol", listcontroller);
+		intent.putExtra("bcontrol", sBundle);
     	startActivity(intent);
 	}
 
@@ -123,6 +123,9 @@ public class MainActivity extends Activity {
 		// Provides the UI functions to switch to the Statistics Layout Window
     	Toast.makeText(this, "List Statistics", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, StatsActivity.class);
+		Bundle sBundle = new Bundle();
+		sBundle.putSerializable("lcontrol", listcontroller);
+		intent.putExtra("bcontrol", sBundle);
     	startActivity(intent);
 	}
 	

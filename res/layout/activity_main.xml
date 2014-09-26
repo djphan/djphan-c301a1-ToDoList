@@ -18,41 +18,34 @@
         android:id="@+id/mainListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/add_maintextfield"
+        android:layout_above="@+id/add_button"
         android:layout_alignLeft="@+id/statsTitle"
         android:layout_below="@+id/statsTitle"
         android:clickable="false" >
     </ListView>
 
-    <Button
-        android:id="@+id/mainarchivebutton"
+    <EditText
+        android:id="@+id/add_maintextfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mainListView"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/add_button"
-        android:onClick="addToArchive"
-        android:text="@string/action_archive" />
+        android:ems="10"
+        android:hint="@string/add_hint" >
+
+        <requestFocus />
+    </EditText>
 
     <Button
         android:id="@+id/add_button"
         style="@style/AppBaseTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/mainarchivebutton"
-        android:layout_alignBottom="@+id/mainarchivebutton"
-        android:layout_alignRight="@+id/mainListView"
+        android:layout_alignBaseline="@+id/add_maintextfield"
+        android:layout_alignBottom="@+id/add_maintextfield"
+        android:layout_alignParentRight="true"
         android:background="@drawable/d_action_new"
         android:onClick="addToDoListMain" />
-
-    <EditText
-        android:id="@+id/add_maintextfield"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/add_button"
-        android:layout_alignLeft="@+id/mainListView"
-        android:layout_alignRight="@+id/mainListView"
-        android:ems="10"
-        android:hint="@string/add_hint" />
 
 </RelativeLayout>

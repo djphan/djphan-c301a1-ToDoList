@@ -22,11 +22,11 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 	protected ToDoList todoListObject;
-	protected MainActivity context;
+	protected Context context;
 	protected LayoutInflater inflater;
 	public ToDoListController listcontroller;
 		
-	public ToDoListAdapter(MainActivity context, ArrayList<ListItem> listItem, ToDoListController listcontroller) {
+	public ToDoListAdapter(Context context, ArrayList<ListItem> listItem, ToDoListController listcontroller) {
 		super(context, R.layout.todolist_item, R.id.addListTextMain, listItem);
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.todoListObject = todoListObject;
@@ -76,7 +76,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 		     checkBox = (CheckBox) convertView.findViewById(R.id.CheckBox);
 		     
 		     convertView.setTag (new ViewHolder(listBody, checkBox) );
-		     
+		  
 		     checkBox.setOnClickListener( new View.OnClickListener() {  
 		    	 public void onClick(View view) {  
 		    		 CheckBox checkbox = (CheckBox) view ;  
@@ -102,6 +102,8 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 
 	     convertView.setClickable(true);
 	     convertView.setFocusable(true);
+	     
+	     if (context = MainActivity){
 
 		 convertView.setOnClickListener(new OnClickListener() {
 			@Override
@@ -112,7 +114,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 				alertdialogbuilderarc.setPositiveButton("Archive", new DialogInterface.OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						item.setCheckArchive(true);
+						item.setCheckArchive(!item.getCheckArchive());
 						listcontroller.updateTrackingLists();
 						}
 					
@@ -129,7 +131,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 
 	  });     
 	    
-	    
+	     }
 	     convertView.setOnLongClickListener(new OnLongClickListener() {
 
 			@Override
