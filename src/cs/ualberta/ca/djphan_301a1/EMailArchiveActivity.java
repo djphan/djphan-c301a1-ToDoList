@@ -71,7 +71,6 @@ public class EMailArchiveActivity extends Activity {
 	}
 	
 	public void SendSelArcToDo(View v) {
-		Toast.makeText(this, "Send Selected Archived Items", Toast.LENGTH_SHORT).show();
-		
+		Toast.makeText(this, "Send Selected Archived Items", Toast.LENGTH_SHORT).show();		
 	}
 }

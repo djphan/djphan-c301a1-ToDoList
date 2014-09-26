@@ -93,6 +93,9 @@ public class MainActivity extends Activity {
     
     @Override
 	protected void onStart() {
+    	// Override Adapted from LonelyTwitter lab assignment. 
+    	// Fork from dfserrano (https://github.com/dfserrano/LonelyTwitterGson).
+    	// Items adapted when completing the assignment.
 		super.onStart();
 		/*toDoList = datamanager.loadToDoList();
 		final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);

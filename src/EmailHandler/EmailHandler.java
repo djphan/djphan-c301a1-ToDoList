@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 public class EmailHandler {
 	
-	// Code adapted from stack overflow method: http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application
 	private Context context;
 	
 	public EmailHandler(Context context){
@@ -19,6 +18,7 @@ public class EmailHandler {
 	
 	public void sendEmail(String emailString){
 		// Email Function Create Intent using Native eMail application
+		// Code snippet taken from fiXedd (http://stackoverflow.com/questions/2197741/how-can-i-send-emails-from-my-android-application)
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
 		intent.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
@@ -46,8 +46,7 @@ public class EmailHandler {
 		}
 	   	
 		Toast.makeText(context, "Email Sent.", Toast.LENGTH_SHORT).show();
-		sendEmail(formattedEmailString);
-		
+		sendEmail(formattedEmailString);	
 		}
 	
 	public void emailSelectArrayList(SparseBooleanArray selection, ArrayList<ListItem> itemsList){
@@ -55,13 +54,15 @@ public class EmailHandler {
 		// and format them into a string for the email
 		// mapped to a BooleanArray of select items
 		
+		// Functionality discussed with Carl Sobloewski on a braoder sense 
+		// to implement selection 
+		
 		String formattedEmailString = "";
 		
 		for (int index = 0; index< itemsList.size(); index++){	
 			if(selection.valueAt(index)) {
 	           ListItem toDoItem = itemsList.get(index);
-		       formattedEmailString += toDoItem.outputEmailString() + '\n';
-		       
+		       formattedEmailString += toDoItem.outputEmailString() + '\n';      
 			}
 	   	
 		Toast.makeText(context, "Email Sent. Selection", Toast.LENGTH_SHORT).show();

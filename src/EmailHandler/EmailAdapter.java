@@ -42,7 +42,8 @@ public class EmailAdapter extends ArrayAdapter<ListItem> {;
 	}
 	
 	private static class ViewHolder {
-
+		// Code snip taken from Vogella Tutorials
+		// (http://www.vogella.com/tutorials/AndroidListView/article.html)
 		private TextView listBody;
 		private CheckBox checkBox;
 		
@@ -70,6 +71,8 @@ public class EmailAdapter extends ArrayAdapter<ListItem> {;
 	
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
+		// Code snip taken from Vogella Tutorials
+		// (http://www.vogella.com/tutorials/AndroidListView/article.html)
 		final ListItem item = (ListItem) getItem(position);
 		TextView listBody;
 		CheckBox checkBox;
@@ -101,11 +104,11 @@ public class EmailAdapter extends ArrayAdapter<ListItem> {;
 	     
 		 convertView.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {}
+			public void onClick(View v) {
+				// Implement Selection Here (?)
+			}
 
 	  });     
-	    
-	     
 	      
 	     checkBox.setTag(item);
 	     checkBox.setChecked(item.getCheckItem());

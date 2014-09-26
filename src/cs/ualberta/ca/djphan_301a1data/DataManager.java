@@ -14,7 +14,10 @@ import android.content.Context;
 import android.util.Log;
 
 public class DataManager implements iDataManager{
-	// Code Adapted from LonelyTwitter lab assignment.
+	// Code Adapted from LonelyTwitter lab assignment. 
+	// Fork from dfserrano (https://github.com/dfserrano/LonelyTwitterGson).
+	// Items adapted when completing the assignment.
+	
 	private static final String FILENAME = "file.sav";
 	
 	private Context context;
@@ -24,7 +27,6 @@ public class DataManager implements iDataManager{
 	}
 	
 	public ArrayList<ListItem> loadToDoList() {
-		// Bug in type arragement? Pass the controller? Self-Note
 		ArrayList<ListItem> savelist = new ArrayList<ListItem>();
 
 		try {
