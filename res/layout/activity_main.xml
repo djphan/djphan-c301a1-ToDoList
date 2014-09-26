@@ -31,6 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/add_button"
+        android:onClick="addToArchive"
         android:text="@string/action_archive" />
 
     <Button

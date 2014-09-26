@@ -3,11 +3,12 @@ package cs.ualberta.ca.djphan_301a1;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,16 +20,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class ToDoListAdapter extends ArrayAdapter<ListItem> {
+public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 	protected ToDoList todoListObject;
-	protected Context context;
+	protected MainActivity context;
 	protected LayoutInflater inflater;
-	
-	public ToDoListAdapter(Context context,  ArrayList<ListItem> listItem) {
+	public ToDoListController listcontroller;
+		
+	public ToDoListAdapter(MainActivity context, ArrayList<ListItem> listItem, ToDoListController listcontroller) {
 		super(context, R.layout.todolist_item, R.id.addListTextMain, listItem);
+		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.todoListObject = todoListObject;
 		this.context = context;
-		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.listcontroller = listcontroller;
 
 	}
 	
@@ -40,7 +43,6 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 		public ViewHolder(TextView listBody, CheckBox checkBox) {
 			this.listBody = listBody;
 			this.checkBox = checkBox;
-			
 		}
 		
 		public TextView getListBody() {
@@ -62,8 +64,8 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		final ListItem item = (ListItem) this.getItem(position);
+	public View getView(final int position, View convertView, ViewGroup parent) {
+		final ListItem item = (ListItem) getItem(position);
 		TextView listBody;
 		CheckBox checkBox;
 		 	     
@@ -73,7 +75,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 	 	     listBody = (TextView) convertView.findViewById(R.id.addListTextMain);
 		     checkBox = (CheckBox) convertView.findViewById(R.id.CheckBox);
 		     
-		     convertView.setTag ( new ViewHolder(listBody, checkBox) );
+		     convertView.setTag (new ViewHolder(listBody, checkBox) );
 		     
 		     checkBox.setOnClickListener( new View.OnClickListener() {  
 		    	 public void onClick(View view) {  
@@ -100,6 +102,34 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 
 	     convertView.setClickable(true);
 	     convertView.setFocusable(true);
+
+		 convertView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder alertdialogbuilderarc = new AlertDialog.Builder(context);
+				alertdialogbuilderarc.setMessage("Archive " + item.getListItem() +" ?");
+				alertdialogbuilderarc.setCancelable(true);
+				alertdialogbuilderarc.setPositiveButton("Archive", new DialogInterface.OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						item.setCheckArchive(true);
+						listcontroller.updateTrackingLists();
+						}
+					
+					});
+					alertdialogbuilderarc.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {}
+	
+					});
+	
+					alertdialogbuilderarc.show();
+
+				}
+
+	  });     
+	    
+	    
 	     convertView.setOnLongClickListener(new OnLongClickListener() {
 
 			@Override
@@ -107,15 +137,15 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 				AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(context);
 				alertdialogbuilder.setMessage("Delete " + item.getListItem() +" ?");
 				alertdialogbuilder.setCancelable(true);
-				alertdialogbuilder.setPositiveButton("Delete", new OnClickListener(){
+				alertdialogbuilder.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						ToDoListController listcontroller = new ToDoListController();
-						listcontroller.removeItem(item);
+						listcontroller.removeItem(0,item);
 					}
 
 				});
-				alertdialogbuilder.setNegativeButton("Cancel", new OnClickListener(){
+				alertdialogbuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 					}
@@ -128,19 +158,14 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {
 	        	
 	   
 	        });
-	        
+	      
+	      
 	     checkBox.setTag(item);
 	     checkBox.setChecked(item.getCheckItem());
 	     listBody.setText(item.getListItem());
 	     
 	     return convertView;
 	}
-
-
-
-
-	
-
 
 	
 

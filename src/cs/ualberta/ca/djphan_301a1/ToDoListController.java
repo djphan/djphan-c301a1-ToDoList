@@ -1,23 +1,111 @@
 package cs.ualberta.ca.djphan_301a1;
 
+import android.content.Context;
+import android.widget.Toast;
+
 public class ToDoListController {
 	
+	// Total ToDoList
 	private static ToDoList toDoList = null;
-	static public ToDoList getToDoList () {
+	
+	// Sectional Lists for Archive and Main
+	private static ToDoList arc_todolist = null;
+	private static ToDoList pub_todolist = null;
+	
+	public static ToDoList getToDoList () {
 		if (toDoList == null) {
 			// Create a new toDoList
 			toDoList = new ToDoList();
 		}
 		
 		return toDoList;
-	}
-
-	public void addItem (ListItem item) {
-		getToDoList().addListItem(item);
-	}
-
-	public void removeItem(ListItem item) {
-		getToDoList().removeListItem(item);	
+		
 	}
 	
-}
+	public static ToDoList returnArchiveList () {
+		if (arc_todolist == null) {
+			arc_todolist = new ToDoList();
+		}
+			
+		return arc_todolist;
+	}
+	
+	public static ToDoList returnPubList () {
+		if (pub_todolist == null) {
+			pub_todolist = new ToDoList();
+		}
+		return pub_todolist;
+	}
+	
+	public void updateTrackingLists () {
+		for (ListItem items : toDoList.getList()) {
+			if (items.getCheckArchive() == false) {
+				// Case checking to update 'public interface' list
+				if (arc_todolist.getList().contains(items)) {
+					arc_todolist.removeListItem(items);	
+				}
+				
+				if (returnPubList().getList().contains(items) == false) {
+					returnPubList().addListItem(items);
+				}
+				
+			} else {
+				if (arc_todolist.getList().contains(items) == false) {
+					arc_todolist.addListItem(items);	
+				}
+				
+				if (returnPubList().getList().contains(items)) {
+					returnPubList().removeListItem(items);
+				}
+				
+			}
+		}
+	}
+	
+	
+	public void bruteUpdateTrackinglists() {
+		// Naive method that brute forces update the lists
+		ToDoList temp_arc = new ToDoList();
+		ToDoList temp_pub = new ToDoList();
+		
+		for (ListItem items : toDoList.getList()) {
+			if ( items.getCheckArchive() == true ) {
+				temp_arc.addListItem(items);
+			} else {
+				temp_pub.addListItem(items);
+			}
+			
+		}
+		
+		arc_todolist = temp_arc;
+		pub_todolist = temp_pub;
+	}
+	
+	public void addItem (int type, ListItem item) {
+		switch (type){
+			case 1:
+				returnArchiveList().addListItem(item);
+			case 2:
+				returnPubList().addListItem(item);
+			default:
+				getToDoList().addListItem(item);
+				returnPubList().addListItem(item);
+				returnArchiveList().addListItem(item);
+		}
+	}
+		
+	public void removeItem(int type, ListItem item) {
+		switch(type) {
+		case 1:
+			returnArchiveList().removeListItem(item);
+		case 2:
+			returnPubList().removeListItem(item);
+		default:
+			getToDoList().removeListItem(item);
+			returnPubList().removeListItem(item);
+			returnArchiveList().removeListItem(item);
+		}
+
+	}
+		
+	}

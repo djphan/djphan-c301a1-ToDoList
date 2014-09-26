@@ -6,8 +6,8 @@ import java.util.Collection;
 
 public class ToDoList implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private ArrayList<ListItem> toDoList;
-	private ArrayList<Listener> listeners;
+	public ArrayList<ListItem> toDoList;
+	public ArrayList<Listener> listeners;
 	
 	public ToDoList() {
 		toDoList = new ArrayList<ListItem>();

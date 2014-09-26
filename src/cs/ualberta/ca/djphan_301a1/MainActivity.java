@@ -51,7 +51,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class MainActivity extends Activity {
-	
+	public ToDoListController listcontroller = new ToDoListController();
+	public ArrayList<Integer> selectedItem = new ArrayList<Integer>();
+    public Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +62,17 @@ public class MainActivity extends Activity {
                 
         // Code to populate the list view adapted from StudentPicker example
         ListView listview = (ListView) findViewById(R.id.mainListView);
-        Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
         final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
-        final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList);
+        final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);
+        
         listview.setAdapter(toDoListViewAdapter);
         listview.setItemsCanFocus(true);
         
-        ToDoListController.getToDoList().addListener(new Listener() {
+        ToDoListController.returnPubList().addListener(new Listener() {
         	@Override
         	public void update () {
         		toDoList.clear();
-        		Collection<ListItem> listItem = ToDoListController.getToDoList().getList();
+        		Collection<ListItem> listItem = ToDoListController.returnPubList().getList();
         		toDoList.addAll(listItem);
         		toDoListViewAdapter.notifyDataSetChanged();
         	}});
@@ -125,9 +128,8 @@ public class MainActivity extends Activity {
 	
 	public void addToDoListMain (View v) {
 		Toast.makeText(this, "Added Item", Toast.LENGTH_SHORT).show();
-		ToDoListController listcontroller = new ToDoListController();
 		EditText textview = (EditText) findViewById(R.id.add_maintextfield);
-		listcontroller.addItem(new ListItem (textview.getText().toString(), false, false));
+		listcontroller.addItem(0, new ListItem (textview.getText().toString(), false, false));
 		// Clear The Text Field for next entry
 		textview.setText("");
 	}
