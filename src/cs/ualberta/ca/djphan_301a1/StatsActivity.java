@@ -1,10 +1,11 @@
 package cs.ualberta.ca.djphan_301a1;
 
+import java.util.Collection;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class StatsActivity extends Activity {
@@ -13,6 +14,14 @@ public class StatsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_stats);
+		
+		Bundle sBundle = getIntent().getBundleExtra("bcontrol");
+	    ToDoListController listcontroller = (ToDoListController) sBundle.get("lcontrol");
+	    ToDoList mainlist = ToDoListController.returnPubList();
+	    ToDoList arclist = ToDoListController.returnArchiveList();
+	    
+	    updateMainStats (mainlist);
+	    updateArchiveStats (arclist);
 		
 	}
 
@@ -32,13 +41,22 @@ public class StatsActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void updateStats (ToDoList list) {
-		TextView numTotalArchive = (TextView) findViewById(R.id.totalArchiveToDoText);
-		TextView numCheckedArchive = (TextView) findViewById(R.id.checkedArchiveToDoText);
-		TextView numUncheckArchive = (TextView) findViewById(R.id.uncheckedArchiveToDoText);
-
+	public void updateMainStats (ToDoList list) {
+		
 		TextView numCheckedToDo = (TextView) findViewById(R.id.checkedToDoListText);
-		TextView numUncheckedToDo = (TextView) findViewById(R.id.checkedToDoListText);
+		numCheckedToDo.setText(Integer.toString(list.countCheckedItem()));
+		TextView numUncheckedToDo = (TextView) findViewById(R.id.uncheckedToDoListText);
+		numUncheckedToDo.setText(Integer.toString(list.countTotalItems()- list.countCheckedItem() ));
+		
+	}
+	public void updateArchiveStats (ToDoList list) {		
+		TextView numTotalArchive = (TextView) findViewById(R.id.totalArchiveToDoText);
+		numTotalArchive.setText(Integer.toString(list.countTotalItems()));
+		TextView numCheckedArchive = (TextView) findViewById(R.id.checkedArchiveToDoText);
+		numCheckedArchive.setText(Integer.toString(list.countCheckedItem()));
+		TextView numUncheckArchive = (TextView) findViewById(R.id.uncheckedArchiveToDoText);
+		numUncheckArchive.setText(Integer.toString(list.countTotalItems() - list.countCheckedItem() ));
+	
 	}
 	
 }

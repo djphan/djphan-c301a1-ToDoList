@@ -103,7 +103,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 	     convertView.setClickable(true);
 	     convertView.setFocusable(true);
 	     
-	     if (context = MainActivity){
+	     
 
 		 convertView.setOnClickListener(new OnClickListener() {
 			@Override
@@ -131,7 +131,7 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 
 	  });     
 	    
-	     }
+	     
 	     convertView.setOnLongClickListener(new OnLongClickListener() {
 
 			@Override

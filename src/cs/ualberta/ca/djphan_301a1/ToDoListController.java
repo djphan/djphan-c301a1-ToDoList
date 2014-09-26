@@ -72,7 +72,6 @@ public class ToDoListController implements Serializable {
 			default:
 				getToDoList().addListItem(item);
 				returnPubList().addListItem(item);
-				returnArchiveList().addListItem(item);
 		}
 	}
 		
