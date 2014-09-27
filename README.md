@@ -1,3 +1,5 @@
+Please clean before building.
+
 djphan_301a1
 =============
 
