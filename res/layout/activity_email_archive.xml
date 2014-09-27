@@ -34,6 +34,7 @@
         android:layout_above="@+id/sendAllArch"
         android:layout_alignLeft="@+id/listViewEmailArch"
         android:layout_alignParentRight="true"
+        android:enabled="false"
         android:onClick="SendSelArcToDo"
         android:text="Send Selected Archive ToDos" />
 

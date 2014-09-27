@@ -18,6 +18,8 @@ public class ToDoList implements Serializable{
 		return toDoList;
 	}
 	
+    //Dr Hindle Student Picker(http://www.youtube.com/watch?v=5PPD0ncJU1g&list=UUTLkh9KmeYXQBR59wJxq1eg)
+	// was uised to develop the listener funcions in the ToDoList class
 	public void addListItem (ListItem listItem) {
 		toDoList.add(listItem);
 		// Update UI step

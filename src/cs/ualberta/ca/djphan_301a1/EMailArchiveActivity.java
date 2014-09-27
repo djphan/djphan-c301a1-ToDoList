@@ -29,6 +29,7 @@ public class EMailArchiveActivity extends Activity {
 	    listItem = ToDoListController.returnArchiveList().getList();
 	    
         // Code to populate the list view adapted from StudentPicker example
+	    //Dr Hindle Student Picker(http://www.youtube.com/watch?v=5PPD0ncJU1g&list=UUTLkh9KmeYXQBR59wJxq1eg)
         ListView listview = (ListView) findViewById(R.id.listViewEmailArch);
     	final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
         final EmailAdapter emailAdapter = new EmailAdapter(this,toDoList, listcontroller);

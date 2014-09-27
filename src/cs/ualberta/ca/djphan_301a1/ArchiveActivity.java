@@ -21,6 +21,7 @@ public class ArchiveActivity extends Activity {
 	    Collection<ListItem> listItem = ToDoListController.returnArchiveList().getList();
 
         // Code to populate the list view adapted from StudentPicker example
+	    //Dr Hindle Student Picker(http://www.youtube.com/watch?v=5PPD0ncJU1g&list=UUTLkh9KmeYXQBR59wJxq1eg)
         ListView listview = (ListView) findViewById(R.id.archiveListView);
         final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
         final ToDoListAdapter toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);

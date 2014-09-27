@@ -35,6 +35,7 @@
         android:layout_above="@+id/butSendAllToDos"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/butSendAllToDos"
+        android:enabled="false"
         android:onClick="SendSelToDo"
         android:text="Send Selected ToDos" />
 

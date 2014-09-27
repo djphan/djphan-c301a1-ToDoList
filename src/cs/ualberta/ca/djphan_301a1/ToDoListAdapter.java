@@ -114,8 +114,13 @@ public class ToDoListAdapter extends ArrayAdapter<ListItem> {;
 				alertdialogbuilderarc.setPositiveButton("Accept", new DialogInterface.OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Toast.makeText(context, "Move to Archive from Main or Unarchived from Archive", Toast.LENGTH_SHORT).show();
 						item.setCheckArchive(!item.getCheckArchive());
+						if (item.getCheckArchive() == true) {
+							Toast.makeText(context, "Archived", Toast.LENGTH_SHORT).show();
+						} else {
+							Toast.makeText(context, "Unarchived", Toast.LENGTH_SHORT).show();
+							
+						}
 						listcontroller.updateTrackingLists();
 						}
 					

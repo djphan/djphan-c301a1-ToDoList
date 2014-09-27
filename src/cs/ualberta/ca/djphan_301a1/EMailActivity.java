@@ -37,6 +37,7 @@ public class EMailActivity extends Activity {
         listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         
         //listview.setMultiChoiceModeListener(new MultiChoiceModeListener() {}
+        // Possible solution to selecting multiple items?
 
     	final ArrayList<ListItem> toDoList = new ArrayList<ListItem>(listItem);
         final EmailAdapter emailAdapter = new EmailAdapter(this,toDoList, listcontroller);
@@ -79,7 +80,8 @@ public class EMailActivity extends Activity {
 	}
 	
 	public void SendSelToDo(View v) {
-		Toast.makeText(this, "Send Selected Items", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Send Selected Items", Toast.LENGTH_SHORT).show();
+		// Button Disabled
 		
 	}
 }

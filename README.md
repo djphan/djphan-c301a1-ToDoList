@@ -18,6 +18,9 @@ items reference.
 Backend implementation of emailSelectArray developed for this function 
 but could not sort out the bugs.
 
+Currently the buttons are disabled for these options to avoid 
+confusion with the markers.
+
 2. Data Serialization back-end implemented but not active. Current bug
 in data streams from OnCreate to OnStart where save file overwrites
 display ArrayLists. Problem in the way the display is generated
@@ -25,19 +28,28 @@ or sorting out data references. Sections commented out in
 Activity Java, back-end implementation available for viewing.
 
 
-Instructions
+Quick Guide
+===========
+1. Use overflow bar to navigate through activities. If no overflow bar use the hardwired menu button in the emulator.
+
+2. OnClick Archive. On Long Click Deletes.
+
+3. Archive Menu, Email, and Stats activities are visited through the menu bar/button (on the right of the emulator)
+
+Full Instructions
 ============
+
+====
 NOTE
 ====
 Check to see if the Action Bar has an overflow icon. If the icon is not there you need to select the menu button
 to switch between the activities. The menu button on the right in the emulator is the hard wired menu button
 for the phone version. This acts as the overflow button in the Action Bar and will navigate activities sucessfully.
-====
 
-Navigating between views require you to move from the Action bar in the MainMenu and
-the back button in the Android menu. 
+Navigating between views require you to move from the Action bar in the MainMenu and the back button in the Android menu. 
 
 1. Selecting
+	Allows for archive or delete functions.
 
 2. Adding
 	In the main ToDoList view you can add items to the list by typing into
@@ -66,7 +78,6 @@ the back button in the Android menu.
 	email either the full ToDo list (under email) or the full Archive (under Email Archive).
 	
 	This should launch a popup that references your email app.
-
 
 6. Statistics
 	In the action bar on the top right on the in menu you may select the information icon.
@@ -169,5 +180,11 @@ Your use of this site is subject to Google's Privacy Policy & Terms of Service.
 4. LonelyTwitter Lab 2/3 were used as a template for the DataManager, iDataManager and Statistics Activity Page.
    This material was forked from dfserrano (https://github.com/dfserrano/LonelyTwitterGson). This material is assumed
    to be in in the public domain for the course to use.
+
+
+5. Dr Hindle Student Picker(http://www.youtube.com/watch?v=5PPD0ncJU1g&list=UUTLkh9KmeYXQBR59wJxq1eg). This series
+was used to extensively create the clicker functions in the main activities.
+
+This material is avaliable under the Creative Commons Attribution license which allows reuse of the material 
 
 

@@ -67,6 +67,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
                        
         // Code to populate the list view adapted from StudentPicker example
+        // Dr Hindle Student Picker(http://www.youtube.com/watch?v=5PPD0ncJU1g&list=UUTLkh9KmeYXQBR59wJxq1eg)
         listview = (ListView) findViewById(R.id.mainListView);
         toDoList = new ArrayList<ListItem>(listItem);
         toDoListViewAdapter = new ToDoListAdapter(this,toDoList, listcontroller);
@@ -154,7 +155,7 @@ public class MainActivity extends Activity {
 
 	public void openActionArchive() {
 		// Provides the UI functions to switch to the Archive Layout Window
-    	Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();		
+    	// Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();		
     	Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
 		Bundle sBundle = new Bundle();
 		sBundle.putSerializable("lcontrol", listcontroller);
@@ -164,7 +165,7 @@ public class MainActivity extends Activity {
 	
 	public void openActionEmail() {
 		// Provides the UI functions to switch to the Archive Layout Window
-    	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();		
+    	// Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();		
     	Intent intent = new Intent(MainActivity.this, EMailActivity.class);
 		Bundle sBundle = new Bundle();
 		sBundle.putSerializable("lcontrol", listcontroller);
@@ -174,7 +175,7 @@ public class MainActivity extends Activity {
 	
 	public void openActionArcEmail() {
 		// Provides the UI functions to switch to the Archive Layout Window
-    	Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();		
+    	// Toast.makeText(this, "E-Mail", Toast.LENGTH_SHORT).show();		
     	Intent intent = new Intent(MainActivity.this, EMailArchiveActivity.class);
 		Bundle sBundle = new Bundle();
 		sBundle.putSerializable("lcontrol", listcontroller);
@@ -184,7 +185,7 @@ public class MainActivity extends Activity {
 
 	public void openActionStats() {
 		// Provides the UI functions to switch to the Statistics Layout Window
-    	Toast.makeText(this, "List Statistics", Toast.LENGTH_SHORT).show();
+    	//Toast.makeText(this, "List Statistics", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(MainActivity.this, StatsActivity.class);
 		Bundle sBundle = new Bundle();
 		sBundle.putSerializable("lcontrol", listcontroller);
